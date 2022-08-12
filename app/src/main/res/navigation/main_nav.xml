@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.helloworld.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/gotoSubFragment"
+            app:destination="@id/subFragment" />
+        <action
+            android:id="@+id/gotomultiplicationFragment"
+            app:destination="@id/multiplicationFragment" />
+        <action
+            android:id="@+id/gotopostFragment"
+            app:destination="@id/postFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/subFragment"
+        android:name="com.example.helloworld.sub.SubFragment"
+        android:label="fragment_sub"
+        tools:layout="@layout/fragment_sub" >
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/multiplicationFragment"
+        android:name="com.example.helloworld.multi.MultiplicationFragment"
+        android:label="fragment_multiplication"
+        tools:layout="@layout/fragment_multiplication" />
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.helloworld.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" />
+    <fragment
+        android:id="@+id/postFragment2"
+        android:name="com.example.helloworld.post.view.PostFragment"
+        android:label="PostFragment" />
+
+</navigation>
