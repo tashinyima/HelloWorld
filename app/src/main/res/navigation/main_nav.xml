@@ -18,6 +18,15 @@
         <action
             android:id="@+id/gotopostFragment"
             app:destination="@id/postFragment2" />
+        <action
+            android:id="@+id/gotoproductFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/gotoentryFragment"
+            app:destination="@id/entryFragment" />
     </fragment>
 
     <fragment
@@ -35,12 +44,45 @@
         tools:layout="@layout/fragment_multiplication" />
     <fragment
         android:id="@+id/postFragment"
-        android:name="com.example.helloworld.PostFragment"
+        android:name="com.example.helloworld.post.view.PostFragment"
         android:label="fragment_post"
         tools:layout="@layout/fragment_post" />
     <fragment
         android:id="@+id/postFragment2"
         android:name="com.example.helloworld.post.view.PostFragment"
         android:label="PostFragment" />
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.helloworld.product.view.ProductFragment"
+        android:label="ProductFragment" >
+        <action
+            android:id="@+id/gotoproductDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.helloworld.product.ProductDetailFragment"
+        android:label="ProductDetailFragment" >
+        <action
+            android:id="@+id/action_productDetailFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.helloworld.add.AddFragment"
+        android:label="AddFragment" />
+    <fragment
+        android:id="@+id/entryFragment"
+        android:name="com.example.helloworld.entries.view.EntryFragment"
+        android:label="EntryFragment" >
+        <action
+            android:id="@+id/gotoentryDetailFragment"
+            app:destination="@id/entryDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/entryDetailFragment"
+        android:name="com.example.helloworld.entries.view.EntryDetailFragment"
+        android:label="fragment_entry_detail"
+        tools:layout="@layout/fragment_entry_detail" />
 
 </navigation>

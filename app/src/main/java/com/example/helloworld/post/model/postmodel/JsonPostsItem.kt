@@ -1,4 +1,4 @@
-package com.example.helloworld.post.model
+package com.example.helloworld.post.model.postmodel
 
 import com.google.gson.annotations.SerializedName
 

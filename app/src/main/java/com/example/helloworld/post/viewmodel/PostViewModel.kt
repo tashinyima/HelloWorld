@@ -2,8 +2,8 @@ package com.example.helloworld.post.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.helloworld.post.model.JsonPostsItem
-import com.example.helloworld.post.network.PostApiService
+import com.example.helloworld.post.model.postmodel.JsonPostsItem
+import com.example.helloworld.network.PostApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

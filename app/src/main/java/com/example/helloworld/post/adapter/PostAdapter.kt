@@ -1,6 +1,5 @@
 package com.example.helloworld.post.adapter
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.helloworld.R
-import com.example.helloworld.post.model.JsonPosts
-import com.example.helloworld.post.model.JsonPostsItem
-import com.example.helloworld.post.utils.loadImage
+import com.example.helloworld.post.model.postmodel.JsonPosts
+import com.example.helloworld.post.model.postmodel.JsonPostsItem
+import com.example.helloworld.utils.loadImage
 
-class PostAdapter(private val jsonPosts: JsonPosts) :
-    RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
+class PostAdapter(private val jsonPosts: JsonPosts) : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
 
 
     val dummy_uri =

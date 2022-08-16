@@ -25,9 +25,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="@string/hello_blank_fragment"
                 android:gravity="center"
-                app:layout_constraintBottom_toTopOf="@+id/btn_sub"
+                android:text="@string/hello_blank_fragment"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,13 +35,11 @@
                 android:id="@+id/btn_sub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="Sub"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <Button
                 android:id="@+id/multibtn"
@@ -63,6 +60,36 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/multibtn"/>
+
+            <Button
+                android:id="@+id/productbtn"
+                android:text="Post"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/postbtn"/>
+
+            <Button
+                android:id="@+id/addbtn"
+                android:text="ADD"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/productbtn"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/getJson"
+                android:text="GetJson"
+                app:layout_constraintTop_toBottomOf="@+id/addbtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

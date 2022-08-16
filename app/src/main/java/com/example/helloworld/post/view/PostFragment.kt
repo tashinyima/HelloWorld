@@ -10,10 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.helloworld.databinding.FragmentPostBinding
 import com.example.helloworld.post.adapter.PostAdapter
-import com.example.helloworld.post.model.JsonPosts
+import com.example.helloworld.post.model.postmodel.JsonPosts
 import com.example.helloworld.post.viewmodel.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class PostFragment : Fragment() {
@@ -39,6 +38,7 @@ class PostFragment : Fragment() {
         fetchData()
         initView()
         observeLiveData()
+
         return viewBinder.root
     }
 
