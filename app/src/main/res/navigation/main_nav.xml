@@ -83,6 +83,10 @@
         android:id="@+id/entryDetailFragment"
         android:name="com.example.helloworld.entries.view.EntryDetailFragment"
         android:label="fragment_entry_detail"
-        tools:layout="@layout/fragment_entry_detail" />
+        tools:layout="@layout/fragment_entry_detail" >
+        <argument
+            android:name="entry"
+            app:argType="com.example.helloworld.entries.model.entries.Entry" />
+    </fragment>
 
 </navigation>

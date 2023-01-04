@@ -52,11 +52,9 @@ class ProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        productAdapter.onItemClick = {
-
+            productAdapter.onItemClick = {
             val bundle = bundleOf("product" to it)
             Log.i("IIII",bundle.toString())
-
             findNavController().navigate(R.id.gotoproductDetailFragment,bundle)
         }
     }

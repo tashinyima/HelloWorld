@@ -1,8 +1,6 @@
-package com.example.helloworld.entries.retrofit.di
+package com.example.helloworld.entries.data.network.di
 
-import com.example.helloworld.entries.model.Entries
-import com.example.helloworld.entries.model.Entry
-import com.example.helloworld.entries.retrofit.EntryApi
+import com.example.helloworld.entries.data.network.EntryApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,20 +14,19 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ApiModule {
-
     @Singleton
     @Provides
-
-    ////  ? where u going buddy   who is calling u
-    fun provideEntriesApi(retrofit: Retrofit):EntryApi {
+//
+//    ////  ? where u going buddy   who is calling u
+    fun provideEntriesApi(retrofit: Retrofit): EntryApi {
         return retrofit.create(EntryApi::class.java)
     }
 
     @Singleton
     @Provides
     // providing retrofit instance to the above function ''' provideEntriesApi
-    fun provideRetrofit(okHttpClient: OkHttpClient):Retrofit {
-       return Retrofit.Builder()
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
             .baseUrl("https://api.publicapis.org/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
@@ -42,7 +39,7 @@ object ApiModule {
     @Provides
     // provide """ okHttpclient to the above function called provideRetrofit
 
-    fun provideOkHttpClient():OkHttpClient {
+    fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient().newBuilder().build()
     }
 }

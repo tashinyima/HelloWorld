@@ -1,8 +1,11 @@
-package com.example.helloworld.entries.model
+package com.example.helloworld.entries.model.entries
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Entry(
     @SerializedName("API")
     val api: String,
@@ -18,4 +21,4 @@ data class Entry(
     val https: Boolean,
     @SerializedName("Link")
     val link: String
-)
+): Parcelable

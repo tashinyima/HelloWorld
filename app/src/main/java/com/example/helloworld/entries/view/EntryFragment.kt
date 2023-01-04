@@ -1,11 +1,12 @@
 package com.example.helloworld.entries.view
 
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.helloworld.R
@@ -30,25 +31,53 @@ class EntryFragment : Fragment() {
         viewBinder = FragmentEntryBinding.inflate(layoutInflater)
 
         entryAdapter = EntriesAdapter(ArrayList())
+        requireActivity().addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.search_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return true
+            }
+
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         return viewBinder.root
     }
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initRV()
-        fetchData()
-        observeLiveData()
-
+        readDatabase()
         onclickItem()
 
     }
 
+    private fun readDatabase() {
+        viewModel.load()
+
+        viewModel.readEntry.observe(viewLifecycleOwner, { database ->
+            if (database.isNotEmpty()) {
+
+                Log.d("EntryFragment", "Requested data from local db ")
+                val entries = database[0].entries.entries
+
+                entryAdapter.updateEntries(entries)
+
+
+            } else {
+                requestApiData()
+
+            }
+
+        })
+    }
+
+
     private fun onclickItem() {
-        entryAdapter.onItemClick ={
+        entryAdapter.onItemClick = {
 
             findNavController().navigate(R.id.gotoentryDetailFragment)
         }
@@ -61,8 +90,14 @@ class EntryFragment : Fragment() {
         }
     }
 
-    private fun fetchData() {
+    private fun requestApiData() {
+        Log.d("EntryFragment", "RequestedApi data called ")
+
+
+
         viewModel.retrieveEntries()
+        observeLiveData()
+
 
 //        viewModel.entriesLiveData.observe(viewLifecycleOwner, {
 //            entryAdapter.updateEntries(it.entries)

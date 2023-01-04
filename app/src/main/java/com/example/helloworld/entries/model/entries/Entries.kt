@@ -1,4 +1,4 @@
-package com.example.helloworld.entries.model
+package com.example.helloworld.entries.model.entries
 
 
 import com.google.gson.annotations.SerializedName
